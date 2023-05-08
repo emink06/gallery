@@ -1,0 +1,98 @@
+@font-face {
+  font-family: OpenSans;
+  src: url("./OpenSans.ttf");
+}
+
+@font-face {
+  font-family: PoppinsThin;
+  src: url("./PoppinsThin.ttf");
+}
+
+body {
+  scroll-behavior: smooth;
+  padding: 15rem;
+  min-height: 100vh;
+  width: 400vw;
+  background-repeat: no-repeat;
+  background: repeating-linear-gradient(
+    130deg,
+    rgba(100, 149, 237, 1),
+    rgba(228, 23, 27, 1)
+  );
+  background-size: 150%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 7rem;
+  color: white;
+}
+
+.card {
+  min-height: 80vh;
+  aspect-ratio: 4.5 / 3;
+}
+
+.card-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 1.5s ease-out;
+}
+
+.card__front,
+.card__back {
+  border-radius: 10vh;
+  position: absolute;
+  inset: 0;
+  text-align: left;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.card__front {
+  background-color: rgb(34, 34, 34);
+  background-image: url(https://picsum.photos/300/200);
+  background-size: cover;
+  background-position: center;
+}
+
+.card__front h1 {
+  width: max-content;
+  margin-inline: auto;
+  font-family: OpenSans;
+  margin-bottom: 1.3rem;
+  font-size: 1.3rem;
+  transform: translateZ(50px);
+  background-color: rgba(34, 34, 34, 0.4);
+  padding: 1rem;
+}
+
+.card__front p {
+  letter-spacing: 2px;
+  transform: translateZ(25px);
+  background-color: hsla(0, 0%, 100%, 0.2);
+}
+
+.card__back {
+  background: rgb(34, 34, 34);
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  /* transform: translateZ(-5px); */
+}
+
+.card__back h1 {
+  letter-spacing: 3px;
+  transform: translateZ(20px);
+  outline: solid white 1px;
+  border-radius: 5vh;
+}
+
+.flipped .card-content {
+  transform: rotateY(180deg);
+}
